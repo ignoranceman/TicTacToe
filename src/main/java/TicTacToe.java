@@ -61,33 +61,35 @@ public class TicTacToe extends TicGUI {
 
     /*游戏判断输赢*/
     public boolean isWin(String s) {
-        boolean win = false;
-        for (int i = 0; i < 3; i++) {//判断某一列是否连成一条线，同一列有三种可能，所以要循环三次判断
+        boolean result = false;//定义一个布尔类型用来返回输赢，初始是没有人赢的，所以先赋值为FALSE
+        for (int i = 0; i < 3; i++) {
+            //判断某一列是否连成一条线，同一列有三种可能，所以要循环三次判断
             if ((button[i][0].getText().equals(s))
                     && (button[i][1].getText().equals(s))
                     && (button[i][2].getText().equals(s)))
-                win = true;
+                result = true;
         }
 
-        for (int j = 0; j < 3; j++) {//判断某一行是否连成一条线，同一行有三种可能，所以要循环三次判断
+        for (int j = 0; j < 3; j++) {
+            //判断某一行是否连成一条线，同一行有三种可能，所以要循环三次判断
             if ((button[0][j].getText().equals(s))
                     && (button[1][j].getText().equals(s))
                     && (button[2][j].getText().equals(s)))
-                win = true;
+                result = true;
         }
 
         //判断主对角线是否连成一条线，只有一种可能，不需要循环
         if ((button[0][0].getText().equals(s))
                 && (button[1][1].getText().equals(s))
                 && (button[2][2].getText().equals(s)))
-            win = true;
+            result = true;
 
-        //判断负对角线是否连成一条线，只有一种可能，不需要循环
+        //判断负对角线是否连成一条线，也是只有一种可能，不需要循环
         if ((button[0][2].getText().equals(s))
                 && (button[1][1].getText().equals(s))
                 && (button[2][0].getText().equals(s)))
-            win = true;
+            result = true;
 
-        return win;
+        return result;//返回result的值
     }
 }
